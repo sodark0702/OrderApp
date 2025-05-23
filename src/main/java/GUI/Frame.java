@@ -10,10 +10,6 @@ public class Frame extends JFrame {
 
     public static final int WIDTH = 500;
     public static final int HEIGHT = 500;
-//
-//    private final JPanel form;
-//    private final JPanel food;
-//    private final JPanel functions;
 
     public Frame() {
         super("Order delivery manager");

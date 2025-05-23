@@ -23,6 +23,10 @@ public class Order {
 		this.createDate = LocalDateTime.now(); // create the date of order
 	}
 
+	public Driver getDriver() {
+		return driver;
+	}
+
 	public String getOrderID() {
 		return orderID;
 	}
