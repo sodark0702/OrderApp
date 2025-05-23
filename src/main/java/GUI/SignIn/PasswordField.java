@@ -1,6 +1,7 @@
 package GUI.SignIn;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class PasswordField extends JPanel {
 
@@ -8,10 +9,10 @@ public class PasswordField extends JPanel {
     private final JPasswordField passwordField;
 
     public PasswordField() {
-        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        this.setLayout(new GridLayout(2, 1));
 
         this.passwordl = new JLabel("Password");
-        this.passwordl.setHorizontalAlignment(SwingConstants.LEFT);
+
 
         this.passwordField = new JPasswordField();
 

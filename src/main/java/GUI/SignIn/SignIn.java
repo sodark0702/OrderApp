@@ -4,21 +4,13 @@ import com.formdev.flatlaf.FlatLightLaf;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
 import java.awt.*;
 
 public class SignIn extends JFrame {
 
     public static final int WIDTH = 300;
     public static final int HEIGHT = 400;
-
-    private final JPanel logo;
-    private final JLabel appName;
-
-    private final JPanel formCenter;
-    private final UsernameField usernameField;
-    private final PasswordField passwordField;
-
-    private final JButton signInButton;
 
     public SignIn() {
         super("Sign in Food Order");
@@ -29,43 +21,66 @@ public class SignIn extends JFrame {
             System.err.println(e);
         }
 
-        Container container = this.getContentPane();
-        container.setLayout(new BorderLayout());
 
-        this.logo = new JPanel();
-        Dimension d = new Dimension(WIDTH, 80);
-        this.logo.setPreferredSize(d);
-        this.logo.setMaximumSize(d);
-        this.appName = new JLabel("Order factory");
-        this.logo.setLayout(new GridBagLayout());
-        this.logo.add(this.appName);
-        container.add(this.logo, BorderLayout.NORTH);
+        // Create main panel with BorderLayout
+        JPanel panel = new JPanel(new BorderLayout());
+        panel.setBackground(Color.WHITE);
 
-        this.formCenter = new JPanel();
-        this.formCenter.setLayout(new BoxLayout(this.formCenter, BoxLayout.Y_AXIS));
-        this.formCenter.setBorder(new EmptyBorder(10, 50, 10, 50));
+        // Font
+        Font font = new Font("Arial", Font.BOLD, 24);
 
-        Dimension d2 = new Dimension(WIDTH, 40);
-        this.usernameField = new UsernameField();
-        this.usernameField.setPreferredSize(d2);
-        this.usernameField.setMaximumSize(d2);
+        // Title
+        JLabel titleLabel = new JLabel("Food Order");
+        titleLabel.setFont(font);
+        titleLabel.setHorizontalAlignment(JLabel.CENTER);
+        panel.add(titleLabel, BorderLayout.NORTH);
 
-        this.passwordField = new PasswordField();
-        this.passwordField.setPreferredSize(d2);
-        this.passwordField.setMaximumSize(d2);
+        // Center panel for form
+        JPanel formPanel = new JPanel(new GridLayout(4, 2, 10, 10));
+        formPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+        formPanel.setBackground(Color.WHITE);
 
-        this.formCenter.add(this.usernameField);
-        this.formCenter.add(this.passwordField);
+        // Form fields
+        Font font2 = new Font("Arial", Font.PLAIN, 14);
+        JLabel usernameLabel = new JLabel("Username");
+        usernameLabel.setFont(font2);
+        JTextField usernameField = new JTextField();
+        JLabel passwordLabel = new JLabel("Password");
+        passwordLabel.setFont(font2);
+        JPasswordField passwordField = new JPasswordField();
+        JLabel forgotLabel = new JLabel("Forgot password?");
+        forgotLabel.setForeground(Color.BLUE);
+        forgotLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
-        this.signInButton = new JButton("Sign in");
-        this.formCenter.add(this.signInButton);
+        // Add components to form panel
+        formPanel.add(usernameLabel);
+        formPanel.add(usernameField);
+        formPanel.add(passwordLabel);
+        formPanel.add(passwordField);
+        formPanel.add(new JLabel()); // Empty label for spacing
+        formPanel.add(forgotLabel);
 
-        container.add(this.formCenter, BorderLayout.CENTER);
+        // Button panel
+        JPanel buttonPanel = new JPanel(new FlowLayout());
+        JButton signUpButton = new JButton("Sign up");
+        JButton signInButton = new JButton("Sign in");
+        signInButton.setBackground(new Color(0, 120, 255));
+        signInButton.setForeground(Color.WHITE);
+        buttonPanel.add(signUpButton);
+        buttonPanel.add(signInButton);
 
-        this.setSize(WIDTH, HEIGHT);
-        this.setLocationRelativeTo(null);
-        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        this.setVisible(true);
+        // Add panels to main panel
+        panel.add(formPanel, BorderLayout.CENTER);
+        panel.add(buttonPanel, BorderLayout.SOUTH);
+
+        // Add panel to frame
+        add(panel);
+
+        // Center the frame
+        setSize(400, 300);
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setVisible(true);
     }
 
 }

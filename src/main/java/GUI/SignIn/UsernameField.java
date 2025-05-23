@@ -1,6 +1,7 @@
 package GUI.SignIn;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class UsernameField extends JPanel {
 
@@ -8,7 +9,8 @@ public class UsernameField extends JPanel {
     private final JTextField usernamef;
 
     public UsernameField() {
-        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        this.setLayout(new GridLayout(2, 1));
+
 
         this.usernamel = new JLabel("Username");
         this.usernamel.setHorizontalAlignment(SwingConstants.LEFT);
