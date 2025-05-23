@@ -8,8 +8,8 @@ import java.awt.*;
 
 public class SignIn extends JFrame {
 
-    public static final int WIDTH = 450;
-    public static final int HEIGHT = 500;
+    public static final int WIDTH = 300;
+    public static final int HEIGHT = 400;
 
     private final JPanel logo;
     private final JLabel appName;
@@ -43,10 +43,17 @@ public class SignIn extends JFrame {
 
         this.formCenter = new JPanel();
         this.formCenter.setLayout(new BoxLayout(this.formCenter, BoxLayout.Y_AXIS));
-        this.formCenter.setBorder(new EmptyBorder(10, 10, 10, 10));
+        this.formCenter.setBorder(new EmptyBorder(10, 50, 10, 50));
 
+        Dimension d2 = new Dimension(WIDTH, 40);
         this.usernameField = new UsernameField();
+        this.usernameField.setPreferredSize(d2);
+        this.usernameField.setMaximumSize(d2);
+
         this.passwordField = new PasswordField();
+        this.passwordField.setPreferredSize(d2);
+        this.passwordField.setMaximumSize(d2);
+
         this.formCenter.add(this.usernameField);
         this.formCenter.add(this.passwordField);
 

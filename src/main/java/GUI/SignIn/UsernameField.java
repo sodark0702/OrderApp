@@ -11,6 +11,7 @@ public class UsernameField extends JPanel {
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
         this.usernamel = new JLabel("Username");
+        this.usernamel.setHorizontalAlignment(SwingConstants.LEFT);
         this.usernamef = new JTextField();
 
         this.add(this.usernamel);

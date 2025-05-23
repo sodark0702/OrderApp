@@ -9,7 +9,10 @@ public class PasswordField extends JPanel {
 
     public PasswordField() {
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+
         this.passwordl = new JLabel("Password");
+        this.passwordl.setHorizontalAlignment(SwingConstants.LEFT);
+
         this.passwordField = new JPasswordField();
 
         this.add(this.passwordl);
