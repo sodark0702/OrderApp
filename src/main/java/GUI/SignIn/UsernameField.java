@@ -2,18 +2,19 @@ package GUI.SignIn;
 
 import javax.swing.*;
 
-public class Div extends JPanel {
+public class UsernameField extends JPanel {
 
-//    private final JLabel usernamef;
-//    private final JTextField username;
-//    private final JLabel passwordl;
-//    private final JPasswordField passwordField;
+    private final JLabel usernamel;
+    private final JTextField usernamef;
 
-    public Div() {
+    public UsernameField() {
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
-//        this.add(this.)
+        this.usernamel = new JLabel("Username");
+        this.usernamef = new JTextField();
 
+        this.add(this.usernamel);
+        this.add(this.usernamef);
     }
 
 }
