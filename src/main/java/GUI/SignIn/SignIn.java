@@ -6,6 +6,8 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class SignIn extends JFrame {
 
@@ -14,13 +16,13 @@ public class SignIn extends JFrame {
 
     public SignIn() {
         super("Sign in Food Order");
+        this.setFocusable(true);
 
         try {
             UIManager.setLookAndFeel(new FlatLightLaf());
         } catch (Exception e) {
             System.err.println(e);
         }
-
 
         // Create main panel with BorderLayout
         JPanel panel = new JPanel(new BorderLayout());
@@ -44,10 +46,10 @@ public class SignIn extends JFrame {
         Font font2 = new Font("Arial", Font.PLAIN, 14);
         JLabel usernameLabel = new JLabel("Username");
         usernameLabel.setFont(font2);
-        JTextField usernameField = new JTextField();
+        JTextField usernameField = new JTextField("khoadangnguyen0702@gmail.com");
         JLabel passwordLabel = new JLabel("Password");
         passwordLabel.setFont(font2);
-        JPasswordField passwordField = new JPasswordField();
+        JPasswordField passwordField = new JPasswordField("sodark0702");
         JLabel forgotLabel = new JLabel("Forgot password?");
         forgotLabel.setForeground(Color.BLUE);
         forgotLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -76,11 +78,30 @@ public class SignIn extends JFrame {
         // Add panel to frame
         add(panel);
 
+        // action event
+        signInButton.addActionListener(e -> {
+            this.handleSignIn();
+        });
+        // key listener
+        this.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == 10) {
+                    SignIn.this.handleSignIn();
+                }
+            }
+        });
+
         // Center the frame
         setSize(400, 300);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
+    }
+
+    public void handleSignIn() {
+        this.dispose();
+        SwingUtilities.invokeLater(GUI.User.User::new);
     }
 
 }
