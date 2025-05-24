@@ -7,6 +7,8 @@ public class Home extends JFrame {
     public static final int WIDTH = 720;
     public static final int HEIGHT = 480;
 
+    
+
     public Home() {
         super("Order App");
 
