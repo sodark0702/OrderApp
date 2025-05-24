@@ -11,7 +11,7 @@ public class FoodPanel extends JPanel {
         setBorder(BorderFactory.createLineBorder(new Color(173, 216, 230))); // Viền xanh nhạt
 
         // Panel cho phần trên (hình ảnh và văn bản)
-        JPanel topPanel = new JPanel(new BorderLayout());
+        JPanel topPanel = new JPanel(new BorderLayout(10, 0));
         topPanel.setBackground(Color.WHITE);
 
         // Thêm hình ảnh
@@ -23,8 +23,14 @@ public class FoodPanel extends JPanel {
 
         // Thêm văn bản "Food name"
         JLabel nameLabel = new JLabel("Food name");
-        nameLabel.setForeground(Color.GRAY);
-        topPanel.add(nameLabel, BorderLayout.CENTER);
+        JPanel intoPanel = new JPanel();
+        nameLabel.setFont(new Font("Arial", Font.BOLD, 16 ));
+        nameLabel.setForeground(Color.decode("#222222"));
+        intoPanel.setBackground(Color.WHITE);
+        intoPanel.setLayout(new BoxLayout(intoPanel, BoxLayout.Y_AXIS));
+        intoPanel.add(nameLabel);
+
+        topPanel.add(intoPanel, BorderLayout.CENTER);
 
         // Thêm panel trên vào layout chính
         topPanel.setBorder(new EmptyBorder(10, 10, 10, 10));
@@ -32,6 +38,7 @@ public class FoodPanel extends JPanel {
 
         // Panel cho nút ở góc dưới
         JPanel bottomPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+        bottomPanel.setBackground(Color.WHITE);
 
 
         // Thêm nút "Delivered"
@@ -45,7 +52,7 @@ public class FoodPanel extends JPanel {
         add(bottomPanel, BorderLayout.SOUTH);
 
         // Thiết lập kích thước panel
-        setPreferredSize(new Dimension(400, 150));
+        setPreferredSize(new Dimension(400, 130));
     }
 
 }

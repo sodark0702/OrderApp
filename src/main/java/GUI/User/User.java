@@ -15,17 +15,16 @@ public class User extends JFrame {
         super("Order App");
 
         this.foodPanelList = new ArrayList<>();
-        this.foodPanelList.add(new FoodPanel());
-        this.foodPanelList.add(new FoodPanel());
-        this.foodPanelList.add(new FoodPanel());
-        this.foodPanelList.add(new FoodPanel());
-        this.foodPanelList.add(new FoodPanel());
-        this.foodPanelList.add(new FoodPanel());
+
+        for (int i = 0; i < 30; ++i) {
+            this.foodPanelList.add(new FoodPanel());
+        }
 
         // init components
         Header header = new Header();
         JPanel main = new JPanel();
         JScrollPane scroll = new JScrollPane(main);
+        scroll.getVerticalScrollBar().setUnitIncrement(50);
         main.setLayout(new BoxLayout(main, BoxLayout.PAGE_AXIS));
 
         for (final var element : this.foodPanelList) {
