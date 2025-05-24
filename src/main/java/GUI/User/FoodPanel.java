@@ -7,7 +7,11 @@ import java.awt.*;
 public class FoodPanel extends JPanel {
 
     private String[] imageUri = {
-
+            "D:\\Documents\\OrderApp\\src\\main\\asset\\Ace-dies-in-anime.jpg",
+            "D:\\Documents\\OrderApp\\src\\main\\asset\\hq720.jpg",
+            "D:\\Documents\\OrderApp\\src\\main\\asset\\maxresdefault.jpg",
+            "D:\\Documents\\OrderApp\\src\\main\\asset\\the-thing-that-bothers-me-the-most-about-gojos-death-v0-matamfm59ctd1.jpg",
+            "D:\\Documents\\OrderApp\\src\\main\\asset\\Zeke-and-Eren-head-in-Attack-on-Titan.jpg",
     };
 
     public FoodPanel() {
@@ -20,7 +24,8 @@ public class FoodPanel extends JPanel {
         topPanel.setBackground(Color.WHITE);
 
         // Thêm hình ảnh
-        ImageIcon imageIcon = new ImageIcon("D:\\Picture\\z6191116983543_5ed08a62d83e3795cbb0b5130065f9e4.jpg"); // Thay bằng đường dẫn thực tế
+        int randomImageIndex = (int) (Math.random() * this.imageUri.length);
+        ImageIcon imageIcon = new ImageIcon(this.imageUri[randomImageIndex]); // Thay bằng đường dẫn thực tế
         Image image = imageIcon.getImage().getScaledInstance(80, 80, Image.SCALE_SMOOTH); // Điều chỉnh kích thước
         imageIcon = new ImageIcon(image);
         JLabel imageLabel = new JLabel(imageIcon);

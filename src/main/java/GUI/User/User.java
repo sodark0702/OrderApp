@@ -16,7 +16,7 @@ public class User extends JFrame {
 
         this.foodPanelList = new ArrayList<>();
 
-        for (int i = 0; i < 30; ++i) {
+        for (int i = 0; i < 10; ++i) {
             this.foodPanelList.add(new FoodPanel());
         }
 
