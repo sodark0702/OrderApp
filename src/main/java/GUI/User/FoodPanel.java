@@ -5,6 +5,11 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
 public class FoodPanel extends JPanel {
+
+    private String[] imageUri = {
+
+    };
+
     public FoodPanel() {
         // Thiết lập layout chính và viền cho panel
         setLayout(new BorderLayout());
@@ -24,11 +29,13 @@ public class FoodPanel extends JPanel {
         // Thêm văn bản "Food name"
         JLabel nameLabel = new JLabel("Food name");
         JPanel intoPanel = new JPanel();
-        nameLabel.setFont(new Font("Arial", Font.BOLD, 16 ));
+        nameLabel.setFont(new Font("Arial", Font.BOLD, 18 ));
         nameLabel.setForeground(Color.decode("#222222"));
         intoPanel.setBackground(Color.WHITE);
         intoPanel.setLayout(new BoxLayout(intoPanel, BoxLayout.Y_AXIS));
+        JLabel storeName = new JLabel("Food shopping");
         intoPanel.add(nameLabel);
+        intoPanel.add(storeName);
 
         topPanel.add(intoPanel, BorderLayout.CENTER);
 
@@ -46,6 +53,9 @@ public class FoodPanel extends JPanel {
         deliveredButton.setBackground(new Color(0, 120, 215)); // Màu xanh cho nút
         deliveredButton.setForeground(Color.WHITE);
         deliveredButton.setFocusPainted(false);
+        JLabel priceLabel = new JLabel("230.322 VND");
+        priceLabel.setFont(new Font("Arial", Font.BOLD, 18));
+        bottomPanel.add(priceLabel);
         bottomPanel.add(deliveredButton);
 
         // Thêm panel dưới vào layout chính
