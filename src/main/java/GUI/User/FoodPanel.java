@@ -14,7 +14,7 @@ public class FoodPanel extends JPanel {
             "D:\\Documents\\OrderApp\\src\\main\\asset\\Zeke-and-Eren-head-in-Attack-on-Titan.jpg",
     };
 
-    public FoodPanel() {
+    public FoodPanel(Order order) {
         // Thiết lập layout chính và viền cho panel
         setLayout(new BorderLayout());
         setBorder(BorderFactory.createLineBorder(new Color(173, 216, 230))); // Viền xanh nhạt
@@ -32,13 +32,13 @@ public class FoodPanel extends JPanel {
         topPanel.add(imageLabel, BorderLayout.WEST);
 
         // Thêm văn bản "Food name"
-        JLabel nameLabel = new JLabel("Food name");
+        JLabel nameLabel = new JLabel(order.getName());
         JPanel intoPanel = new JPanel();
         nameLabel.setFont(new Font("Arial", Font.BOLD, 18 ));
         nameLabel.setForeground(Color.decode("#222222"));
         intoPanel.setBackground(Color.WHITE);
         intoPanel.setLayout(new BoxLayout(intoPanel, BoxLayout.Y_AXIS));
-        JLabel storeName = new JLabel("Food shopping");
+        JLabel storeName = new JLabel(order.getShopper());
         intoPanel.add(nameLabel);
         intoPanel.add(storeName);
 
@@ -53,15 +53,23 @@ public class FoodPanel extends JPanel {
         bottomPanel.setBackground(Color.WHITE);
 
 
-        // Thêm nút "Delivered"
-        JButton deliveredButton = new JButton("Delivered");
-        deliveredButton.setBackground(new Color(0, 120, 215)); // Màu xanh cho nút
-        deliveredButton.setForeground(Color.WHITE);
-        deliveredButton.setFocusPainted(false);
+        // status button
         JLabel priceLabel = new JLabel("230.322 VND");
+        priceLabel.setForeground(Color.decode("#666666"));
         priceLabel.setFont(new Font("Arial", Font.BOLD, 18));
         bottomPanel.add(priceLabel);
-        bottomPanel.add(deliveredButton);
+
+        // button delivered
+        CustomButton returnsButton = new CustomButton("Return and report", Color.decode("#F2F2F2"));
+        CustomButton deliveredButton = new CustomButton("Received");
+        CustomButton followButton = new CustomButton("Follow order");
+        if (order.isDelivery()) {
+            bottomPanel.add(returnsButton);
+            bottomPanel.add(deliveredButton);
+        }
+        if (order.isConvey()) {
+            bottomPanel.add(followButton);
+        }
 
         // Thêm panel dưới vào layout chính
         add(bottomPanel, BorderLayout.SOUTH);

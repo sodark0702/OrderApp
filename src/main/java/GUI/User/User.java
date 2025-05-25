@@ -11,14 +11,17 @@ public class User extends JFrame {
 
     private List<FoodPanel> foodPanelList;
 
+    private FakeDataBase fakeDataBase;
+
     public User() {
         super("Order App");
 
         this.foodPanelList = new ArrayList<>();
-
-        for (int i = 0; i < 10; ++i) {
-            this.foodPanelList.add(new FoodPanel());
+        this.fakeDataBase = new FakeDataBase();
+        for (final var e : fakeDataBase.orders) {
+            foodPanelList.add(new FoodPanel(e));
         }
+
 
         // init components
         Header header = new Header();
