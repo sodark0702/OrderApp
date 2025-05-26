@@ -1,4 +1,4 @@
-package Order_Delivery_Management_System;
+package Backend;
 
 public interface DeliveryFeeStrategy {
 	public double calculateFee(Order order);

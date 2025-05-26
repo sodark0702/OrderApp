@@ -1,4 +1,4 @@
-package Order_Delivery_Management_System;
+package Backend;
 
 public abstract class User {
 	private String id, name, email, phone, password;
@@ -19,7 +19,18 @@ public abstract class User {
 	public String getEmail() {
 		return email;
 	}
+	
+	public String getID() {
+		return id;
+	}
+	
+	public String getName() {
+		return name;
+	}
 
-	public abstract void viewOrders();
+	public String getPhone() {
+		return phone;
+	}
+	
 
 }

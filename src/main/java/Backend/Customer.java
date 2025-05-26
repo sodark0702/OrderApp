@@ -1,6 +1,7 @@
-package Order_Delivery_Management_System;
+package Backend;
 
 import java.util.*;
+import java.util.Observer;
 
 public class Customer extends User implements Observer {
 	private List<Order> orderHistory = new ArrayList<>();
@@ -9,24 +10,17 @@ public class Customer extends User implements Observer {
 		super(id, name, email, phone, password);
 	}
 
-	@Override
-	public void viewOrders() {
-		for (Order order : orderHistory) {
-			System.out.println("Order: " + order.getOrderID() + " - State: " + order.getState());
-		}
-
-	}
+	
 
 	@Override
 	public void update(Order order) {
-		System.out.println("Customers are informed: Order " + order.getOrderID() + " has changed into state: "
-				+ order.getState());
+		System.out.println("Customer is informed: Order " + order.getOrderID() + " has changed into state: "
+				+ order.getState().getStatus());
 	}
 
 	public void placeOrder(Order order) {
 		orderHistory.add(order);
-		order.attach(this);
-		System.out.println("Order: " + order.getOrderID() + " has order successful");
+		System.out.println("Order: " + order.getOrderID().toString() + " has order successful");
 	}
 
 	public List<Order> getOrders() {

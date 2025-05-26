@@ -1,4 +1,4 @@
-package Order_Delivery_Management_System;
+package Backend;
 
 public class Product {
 	private String productID, name;
@@ -20,6 +20,10 @@ public class Product {
 	public String getCategory() {
 		return category;
 	}
+	public String getProductID() {
+		return productID;
+	}
+	
 	
 
 }

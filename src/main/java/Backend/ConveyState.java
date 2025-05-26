@@ -1,6 +1,6 @@
-package Order_Delivery_Management_System;
+package Backend;
 
-public class ShippingState implements OrderState{
+public class ConveyState implements OrderState{
 
 	@Override
 	public void handle(Order order) {
@@ -9,7 +9,7 @@ public class ShippingState implements OrderState{
 
 	@Override
 	public String getStatus() {
-		return "Shipping";
+		return "Conveying";
 	}
 
 }
